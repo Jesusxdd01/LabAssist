@@ -1,0 +1,33 @@
+:root {
+    --fuenteHeading: 'PT Sans', sans-serif;
+    --fuenteParrafos: 'Open Sans', sans-serif;
+
+    --blanco: #ffffff;
+    --negro: #000000;
+    --morado: #4154f1;
+    --grisFondo: #e5e8ec;
+    --azul: #06326b; 
+    --color-letra:#252526;
+}
+
+.titulo-azul{
+    color: var(--azul);
+    font-weight: bold;
+}
+.icono-elementos{
+    width: 25px;
+    height: 25px;
+}
+.elemento:hover{
+    background-color: var(--azul);
+    border-radius: 50px;
+}
+.btn-cerrar-sesion{
+    border-color: var(--azul);
+    border-radius: 50px;
+    color: var(--azul);
+}
+.btn-cerrar-sesion:hover{
+    color: white;
+    background-color: var(--azul);
+}

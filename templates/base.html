@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel='icon' href='{% static "img/icono.png" %}' type='image/x-icon'>
+    <link rel='stylesheet' href='{% static "css/normalize.css" %}'>
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
+        crossorigin="crossorigin" as="font">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel='stylesheet' href='{% static "css/style.css" %}'>
+    <link rel="stylesheet" href='{% static "css/hamburgers.css" %}'>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    {% block titulo %}
+        <title>Inicio</title>
+    {% endblock %}
+
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <div class="div-enlace">
+                <a href='{% url "index" %}' class="lab-h1">
+                    <h1>LabAssist</h1>
+                </a>
+            </div>
+            
+            <div class="div-logos-imagenes">
+                <img loading='lazy' src='{% static "img/LogoTNM.png"  %}' alt='logo' class="logos">
+                <img loading='lazy' src='{% static "img/tecnm.png"  %}' alt='logo' class="logos">
+                <img loading='lazy' src='{% static "img/Logo-ita.png"  %}' alt='logo' class="logos"> 
+            </div>
+        </div>
+
+        <div class="bars">
+            <button class="hamburger hamburger--spin" type="button">
+                <span class="hamburger-box">
+                  <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+
+        <nav class="nav-bar">
+            <ul>
+                <li>
+                    <a href='{% url "index" %}' class="navegacion__enlace">Inicio</a>
+                <li>
+                    <a href='{% url "login" %}' class="navegacion__enlace">Iniciar Sesión</a>
+                </li>
+            </ul>
+        </nav>
+        <script src='{% static "js/nav.js"  %}'></script>
+    </header>
+
+
+    <!-- Main content -->
+    <main>
+        {% block contenido %}
+        {% endblock %}
+    </main>
+    <!-- /.content -->
+   
+
+
+    <footer class="footer centrar-texto">
+        <p>
+            Instituto Tecnológico de Apizaco <br>  
+            Av. Instituto Tecnológico s/n Conurbado Tzompantepec, 90300 Apizaco, Tlax. Teléfono: +52 (241) 417 2010 <br>
+            Tecnológico Nacional de México - Algunos derechos reservados © 2014-2021 <br>
+            Política de Privacidad <br>
+        </p>
+
+        <p> ©2024 LabAssist V1 | Todos los Derechos Reservados  </p>
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+{%extends "base.html"%}
+{% load static %}
+
+{%block titulo%}
+    <title>Iniciar Sesión</title>
+{%endblock%}
+
+{% block contenido %}
+    <br><br><br><br>
+    <div class="card">
+        <img src='{% static "img/avatar.png"  %}' alt="" class="usr">
+        <h2>Ingresa tus Credenciales</h2><br>
+        <form class="form" method="POST" action="{% url 'login' %}"> 
+            {% csrf_token %} 
+            <input type="text" name="username" placeholder="Usuario" required> 
+            <input type="password" name="password" placeholder="Contraseña" required> 
+            <button type="submit">Iniciar Sesión</button> 
+        </form>
+    </div>
+    <br><br>
+{% endblock %}

@@ -1,0 +1,17 @@
+{%extends "base.html"%}
+{% load static %}
+
+{%block titulo%}
+    <title>Inicio</title>
+{%endblock%}
+
+{% block contenido %}
+    <br><br><br>
+    <h1 class="centrar-texto titulo">Bienvenido a LabbAssist</h1>
+    <div class="tarjeta">
+        <img src='{% static "img/captura.png"  %}' alt="">
+        <p>LabAssist es una solución diseñada para gestionar y monitorear la asistencia de los usuarios al centro de cómputo de manera eficiente y precisa. 
+            Este sistema ofrece una plataforma digital donde los usuarios pueden registrar su entrada y salida mediante dispositivos electrónicos, como tarjetas de 
+            identificación con códigos QR, dispositivos biométricos, o incluso aplicaciones móviles.</p>
+    </div>
+{% endblock %}
