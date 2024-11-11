@@ -1,13 +1,19 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login as auth_login  # Alias para evitar conflicto
+from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import UserProfile
-from django.contrib.auth import logout
 
 def index(request):
     return render(request, 'index.html')
 
 def login_view(request):
+    if request.user.is_authenticated:
+        if request.user.userprofile.user_type == 'admin':
+            return redirect('administrador')
+        elif request.user.userprofile.user_type == 'docente':
+            return redirect('docente')
+    
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -22,7 +28,8 @@ def login_view(request):
             messages.error(request, 'Credenciales inválidas. Por favor, intenta de nuevo.')
     return render(request, 'login.html')
 
-def logout_view(request): 
-    logout(request) 
-    messages.success(request, 'Has cerrado sesión exitosamente.') 
-    return redirect('login') # Redirige a la página de login después del cierre de sesión
+@login_required
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'Has cerrado sesión exitosamente.')
+    return redirect('login')  # Redirige a la página de login después del cierre de sesión
